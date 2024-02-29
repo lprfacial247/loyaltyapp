@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Outletorder">
         <activity
+            android:name=".features.scanOption.ScanOptionsActivity"
+            android:exported="false" />
+        <activity
             android:name=".features.login.LoginActivity"
             android:exported="true">
             <intent-filter>
@@ -29,7 +32,7 @@
         </activity>
         <activity
             android:name=".features.main.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"
