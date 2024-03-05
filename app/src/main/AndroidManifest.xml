@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Outletorder">
         <activity
+            android:name=".features.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.rfidScanApproved.RFIDScanApprovedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.manualInserting.ManualInsertingActivity"
+            android:exported="false" />
+        <activity
             android:name=".features.scanOption.ScanOptionsActivity"
             android:exported="false" />
         <activity
@@ -24,11 +33,13 @@
         <activity
             android:name=".features.splash.SplashActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".features.main.MainActivity"
