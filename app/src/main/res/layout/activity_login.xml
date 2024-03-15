@@ -41,6 +41,7 @@
             />
 
         <EditText
+            android:id="@+id/passwordInput"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"

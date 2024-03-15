@@ -92,8 +92,16 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
     implementation "com.squareup.retrofit2:converter-moshi:${retrofit_version}"
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.2'
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     //Timber
     implementation 'com.jakewharton.timber:timber:5.0.1'
     //required to avoid crash on Android 12 API 31
     implementation 'androidx.work:work-runtime-ktx:2.7.1'
+
+    implementation 'com.github.yuriy-budiyev:code-scanner:2.3.0'
+    //For Bar Code Scanner
+//    implementation 'com.budiyev.android:code-scanner:2.1.0'
+    implementation 'com.github.yuriy-budiyev:code-scanner:2.3.0'
+
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 }

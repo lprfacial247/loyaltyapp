@@ -1,16 +1,18 @@
 package com.app.loyality.common.network.api
 
-import com.app.loyality.features.home.FeedResponse
-import retrofit2.http.GET
-import retrofit2.http.Header
+
+import com.app.loyality.features.login.LoginResponse
+import retrofit2.Call
+import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("api/endPoint")
-    suspend fun fetchAnyApiData1(
-        @Header("Authorization") token: String): FeedResponse
+    @FormUrlEncoded
+    @POST("api-login")
+    fun login(
+        @Field("device_token") deviceToken: String,
+        @Field("pincode") pincode: String
+    ): Call<LoginResponse>
 
-    @GET("api/endPoint")
-    suspend fun fetchAnyApiData2(
-        @Header("Authorization") token: String): FeedResponse
+
 }

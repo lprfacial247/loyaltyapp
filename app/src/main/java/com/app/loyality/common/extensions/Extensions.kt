@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.IdRes
@@ -21,6 +22,8 @@ import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.app.loyality.common.app.MyApplication
+import com.bumptech.glide.Glide
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
@@ -292,4 +295,26 @@ fun AppCompatActivity.showErrorLog(message: String) {
 fun Fragment.showErrorLog(message: String) {
     Timber.e(message)
 }
+
+fun String.toast() {
+    Toast.makeText(MyApplication.appContext, this, Toast.LENGTH_SHORT).show()
+}
+
+fun ImageView.load(imageUrl: String) {
+    Glide.with(this.context).load(imageUrl).into(this)
+}
+
+fun ImageView.load(imageUri: Uri) {
+    Glide.with(this.context).load(imageUri).into(this)
+}
+
+fun ImageView.load(imageUrl: String, errorDrawable: Int) {
+    Glide.with(this.context)
+        .load(imageUrl)
+        .error(errorDrawable)
+        .placeholder(errorDrawable)
+        .into(this)
+}
+
+
 
