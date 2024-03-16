@@ -3,6 +3,7 @@ package com.app.loyality.common.network.api
 
 import com.app.loyality.features.barScanner.UserInfoResponse
 import com.app.loyality.features.login.LoginResponse
+import com.app.loyality.features.manualInsert.ManualInsertResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -26,6 +27,20 @@ interface ApiService {
         @Field("email") email: String,
         @Field("phone") phone: String
     ): Call<UserInfoResponse>
+
+
+    @FormUrlEncoded
+    @POST("api-loyalty-submit-new-customer")
+    fun submitNewCustomer(
+        @Field("name") name: String,
+        @Field("email") email: String,
+        @Field("phone") phone: String,
+        @Field("telegram") telegram: String = "",
+        @Field("whatsapp") whatsapp: String = "",
+        @Field("Instagram") instagram: String = "",
+        @Field("linkedin") linkedin: String = "",
+        @Field("facebook") facebook: String = ""
+    ): Call<ManualInsertResponse>
 
 
 }
