@@ -1,12 +1,8 @@
 package com.app.loyality.features.qrScanner
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.app.loyality.R
 import com.app.loyality.databinding.ActivityQrScannerBinding
 import com.budiyev.android.codescanner.AutoFocusMode
@@ -27,6 +23,7 @@ class QrScannerActivity : AppCompatActivity(R.layout.activity_qr_scanner) {
 
 
     }
+
 
     private fun init() {
         codeScanner = CodeScanner(this, binding.scannerView)
@@ -70,6 +67,7 @@ class QrScannerActivity : AppCompatActivity(R.layout.activity_qr_scanner) {
         codeScanner.releaseResources()
         super.onPause()
     }
+
 
 
 }

@@ -15,6 +15,7 @@ import com.app.loyality.common.extensions.toast
 import com.app.loyality.common.utils.DeviceUtils
 import com.app.loyality.databinding.ActivityLoginBinding
 import com.app.loyality.features.scanOption.ScanOptionsActivity
+import com.app.loyality.common.pref.SpManager
 import com.wada811.viewbinding.viewBinding
 
 class LoginActivity : AppCompatActivity(R.layout.activity_login) {
@@ -46,6 +47,7 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
             viewModel.login(deviceToken, pinCode,
                 onSuccess = {
                     "Login Successful".toast()
+                    SpManager.saveUser(this, it)
                     navigateToNextActivity()
                 },
                 onFailed = {

@@ -1,4 +1,4 @@
-package com.app.loyality.features.manualInserting
+package com.app.loyality.features.manualInsert
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

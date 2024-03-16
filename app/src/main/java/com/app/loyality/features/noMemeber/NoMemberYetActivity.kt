@@ -5,7 +5,8 @@ import android.os.Bundle
 import com.app.loyality.R
 import com.app.loyality.common.extensions.changeActivity
 import com.app.loyality.databinding.ActivityNoMemberYetBinding
-import com.app.loyality.features.manualInserting.ManualInsertingActivity
+import com.app.loyality.features.manualCheck.ManualCheckActivity
+import com.app.loyality.features.manualInsert.ManualInsertActivity
 import com.wada811.viewbinding.viewBinding
 
 class NoMemberYetActivity : AppCompatActivity(R.layout.activity_no_member_yet) {
@@ -19,7 +20,7 @@ class NoMemberYetActivity : AppCompatActivity(R.layout.activity_no_member_yet) {
 
     private fun initClicks() {
         binding.includeDialog.btnAddNew.setOnClickListener {
-            changeActivity(ManualInsertingActivity::class.java)
+            changeActivity(ManualInsertActivity::class.java)
         }
 
         binding.includeDialog.btnBack.setOnClickListener {
