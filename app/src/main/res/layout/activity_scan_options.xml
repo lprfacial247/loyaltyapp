@@ -208,7 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/adamina"
-                    android:text="Manual Inserting"
+                    android:text="Manual Check"
                     android:textColor="#3992F4" />
 
                 <TextView

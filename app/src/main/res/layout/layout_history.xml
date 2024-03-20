@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/tvStoreName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/encode_sans_semibold"
@@ -25,6 +26,7 @@
             android:textColor="#46185B" />
 
         <TextView
+            android:id="@+id/tvVisitDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/encode_sans"
@@ -38,15 +40,24 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/tvTotalPaidAmount"
         app:layout_constraintStart_toEndOf="@+id/linearLayout3"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvBoughtProducts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/encode_sans_semibold"
+            android:text="142"
+            android:textColor="#46185B" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/encode_sans_semibold"
-            android:text="142 Prods"
+            android:text="Prods"
+            android:layout_marginStart="@dimen/_2sdp"
             android:textColor="#46185B" />
 
         <ImageView
@@ -58,7 +69,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvTotalPaidAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$ 123.45"

@@ -1,24 +1,26 @@
 package com.app.loyality.features.manualCheck
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.app.loyality.R
 import com.app.loyality.common.extensions.changeActivity
+import com.app.loyality.common.extensions.fromPOJOToJSON
+import com.app.loyality.common.extensions.isEmailValid
+import com.app.loyality.common.extensions.toJson
 import com.app.loyality.common.extensions.toast
 import com.app.loyality.common.network.api.RetrofitClient
 import com.app.loyality.common.pref.SpManager
-import com.app.loyality.databinding.ActivityManualInsertingBinding
+import com.app.loyality.databinding.ActivityManualCheckBinding
 import com.app.loyality.features.barScanner.UserInfoResponse
 import com.app.loyality.features.main.MainActivity
-import com.app.loyality.features.manualInsert.ManualInsertSuccessActivity
 import com.app.loyality.features.noMemeber.NoMemberYetActivity
 import com.wada811.viewbinding.viewBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ManualCheckActivity : AppCompatActivity(R.layout.activity_manual_inserting) {
-    private val binding by viewBinding(ActivityManualInsertingBinding::bind)
+class ManualCheckActivity : AppCompatActivity(R.layout.activity_manual_check) {
+    private val binding by viewBinding(ActivityManualCheckBinding::bind)
     private val user by lazy { SpManager.getUser(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +43,10 @@ class ManualCheckActivity : AppCompatActivity(R.layout.activity_manual_inserting
                 "Email can't be empty!!".toast()
                 return@setOnClickListener
             }
+            if (!email.isEmailValid()) {
+                "Invalid email address".toast()
+                return@setOnClickListener
+            }
             if (phone.isEmpty()) {
                 "Phone can't be empty!!".toast()
                 return@setOnClickListener
@@ -48,6 +54,7 @@ class ManualCheckActivity : AppCompatActivity(R.layout.activity_manual_inserting
 
             checkCustomerInfo(user.userIdx, name, email, phone,
                 onSuccess = {
+                    SpManager.saveString(this@ManualCheckActivity, SpManager.KEY_USER_INFO, it.toJson())
                     changeActivity(MainActivity::class.java)
                     finish()
                 },

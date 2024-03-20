@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/tvInfo"
+                android:id="@+id/ivProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
@@ -59,10 +59,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/encode_sans_bold"
-                    android:text="Alexandra Vasily"
+                    tools:text="Alexandra Vasily"
                     android:textColor="#46185B"
                     android:textSize="@dimen/_14ssp"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toStartOf="@+id/ivLoayality"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,7 +71,7 @@
                     android:id="@+id/linearLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toStartOf="@+id/ivLoayality"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvName">
 
@@ -85,6 +85,7 @@
                         android:textColor="#9BA0A6" />
 
                     <TextView
+                        android:id="@+id/tvCardNo"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
@@ -99,7 +100,7 @@
                     android:id="@+id/holderBarCode"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toStartOf="@+id/ivLoayality"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
@@ -113,6 +114,7 @@
                         android:textColor="#9BA0A6" />
 
                     <TextView
+                        android:id="@+id/tvBarCode"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
@@ -139,6 +141,7 @@
                         app:tint="#46185B" />
 
                     <TextView
+                        android:id="@+id/tvTotalPoints"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_4sdp"
@@ -164,6 +167,7 @@
                         app:tint="#46185B" />
 
                     <TextView
+                        android:id="@+id/tvTotalPaidAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_4sdp"
@@ -174,7 +178,7 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/ivLoayality"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/loyality"
@@ -182,6 +186,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tvissueDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
@@ -189,8 +194,8 @@
                     android:textColor="#9BA0A6"
                     android:fontFamily="@font/encode_sans"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/imageView2"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                    app:layout_constraintStart_toStartOf="@+id/ivLoayality"
+                    app:layout_constraintTop_toBottomOf="@+id/ivLoayality" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -226,26 +231,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     >
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
-                    <include layout="@layout/layout_history"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/layout_history"
+                        tools:itemCount="5"
+                        />
                 </LinearLayout>
             </ScrollView>
 

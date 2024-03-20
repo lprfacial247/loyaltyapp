@@ -6,6 +6,7 @@ import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Patterns
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -24,6 +25,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.app.loyality.common.app.MyApplication
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
@@ -233,9 +235,9 @@ suspend fun Call.executeSuspended(): Response = withContext(Dispatchers.IO) { ex
 * View
 * */
 
-fun View.visible() { this.visibility = View.VISIBLE }
+fun View.show() { this.visibility = View.VISIBLE }
 
-fun View.invisible() { this.visibility = View.INVISIBLE }
+fun View.hide() { this.visibility = View.INVISIBLE }
 
 fun View.gone() { this.visibility = View.GONE }
 
@@ -316,5 +318,16 @@ fun ImageView.load(imageUrl: String, errorDrawable: Int) {
         .into(this)
 }
 
+fun String.isEmailValid(): Boolean {
+    return Patterns.EMAIL_ADDRESS.matcher(this).matches()
+}
+
+fun Any.toJson(): String {
+    return Gson().toJson(this)
+}
+
+inline fun <reified T> String.fromJson(): T {
+    return Gson().fromJson(this, T::class.java)
+}
 
 

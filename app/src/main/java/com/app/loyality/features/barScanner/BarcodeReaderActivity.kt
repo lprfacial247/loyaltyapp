@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.app.loyality.R
 import com.app.loyality.common.extensions.changeActivity
 import com.app.loyality.common.extensions.gone
+import com.app.loyality.common.extensions.toJson
 import com.app.loyality.common.network.api.RetrofitClient
 import com.app.loyality.common.pref.SpManager
 import com.app.loyality.databinding.ActivityBarcodeReaderBinding
@@ -40,6 +41,7 @@ class BarcodeReaderActivity : AppCompatActivity(R.layout.activity_barcode_reader
             runOnUiThread {
                 checkCustomerInfo(user.userIdx, result.text,
                     onSuccess = {
+                        SpManager.saveString(this@BarcodeReaderActivity, SpManager.KEY_USER_INFO, it.toJson())
                         changeActivity(MainActivity::class.java)
                         finish()
                     },

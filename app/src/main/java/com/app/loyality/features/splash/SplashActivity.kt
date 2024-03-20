@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import com.app.loyality.R
 import com.app.loyality.common.extensions.changeActivity
 import com.app.loyality.databinding.ActivitySplashBinding
+import com.app.loyality.features.login.LoginActivity
 import com.app.loyality.features.main.MainActivity
 import com.wada811.viewbinding.viewBinding
 import kotlinx.coroutines.delay
@@ -22,7 +23,7 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
 
         lifecycleScope.launch {
             delay(3000)
-            changeActivity(MainActivity::class.java)
+            changeActivity(LoginActivity::class.java)
         }
 
 

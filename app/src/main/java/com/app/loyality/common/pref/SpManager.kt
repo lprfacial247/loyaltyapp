@@ -8,7 +8,7 @@ import com.google.gson.Gson
 object SpManager {
     private const val PREFERENCES_NAME = "SpManager"
     public const val KEY_USER = "user"
-    public const val KEY_WIRE_HOUSE_INDEX = "wh"
+    public const val KEY_USER_INFO = "user_info"
     public const val KEY_FLOOR_INDEX = "fr"
     public const val KEY_ROOM_INDEX = "rm"
     public const val KEY_SECTION_INDEX = "sn"

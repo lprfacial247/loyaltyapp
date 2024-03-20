@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.app.loyality.R
 import com.app.loyality.common.extensions.changeActivity
+import com.app.loyality.common.extensions.toJson
+import com.app.loyality.common.pref.SpManager
 import com.app.loyality.databinding.ActivityRfidscanApprovedBinding
 import com.app.loyality.features.main.MainActivity
 import com.wada811.viewbinding.viewBinding
@@ -19,6 +21,7 @@ class RFIDScanApprovedActivity : AppCompatActivity(R.layout.activity_rfidscan_ap
 
     private fun initClicks() {
         binding.btnOk.setOnClickListener {
+            SpManager.saveString(this@RFIDScanApprovedActivity, SpManager.KEY_USER_INFO, "")
             changeActivity(MainActivity::class.java)
         }
 

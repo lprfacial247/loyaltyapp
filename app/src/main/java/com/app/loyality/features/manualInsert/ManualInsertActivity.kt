@@ -1,23 +1,20 @@
 package com.app.loyality.features.manualInsert
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.app.loyality.R
 import com.app.loyality.common.extensions.changeActivity
+import com.app.loyality.common.extensions.isEmailValid
 import com.app.loyality.common.extensions.toast
 import com.app.loyality.common.network.api.RetrofitClient
-import com.app.loyality.databinding.ActivityManualInsertingBinding
-import com.app.loyality.features.barScanner.UserInfoResponse
+import com.app.loyality.databinding.ActivityManualInsertBinding
 import com.wada811.viewbinding.viewBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ManualInsertActivity : AppCompatActivity(R.layout.activity_manual_insert) {
-    private val binding by viewBinding(ActivityManualInsertingBinding::bind)
+    private val binding by viewBinding(ActivityManualInsertBinding::bind)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +30,10 @@ class ManualInsertActivity : AppCompatActivity(R.layout.activity_manual_insert) 
             }
             if (email.isEmpty()) {
                 "Email can't be empty!!".toast()
+                return@setOnClickListener
+            }
+            if (!email.isEmailValid()) {
+                "Invalid email address".toast()
                 return@setOnClickListener
             }
             if (phone.isEmpty()) {
