@@ -17,6 +17,7 @@ import com.app.loyality.features.barScanner.BarcodeReaderActivity
 import com.app.loyality.features.manualCheck.ManualCheckActivity
 import com.app.loyality.features.qrScanner.QrScannerActivity
 import com.app.loyality.features.rfidScanApproved.RFIDScanApprovedActivity
+import com.app.loyality.features.rfidScanApproved.RfidScanActivity
 import com.wada811.viewbinding.viewBinding
 
 class ScanOptionsActivity : AppCompatActivity(R.layout.activity_scan_options) {
@@ -58,7 +59,7 @@ class ScanOptionsActivity : AppCompatActivity(R.layout.activity_scan_options) {
 
     private fun initClicks() {
         binding.scanRfid.setOnClickListener {
-            changeActivity(RFIDScanApprovedActivity::class.java)
+            changeActivity(RfidScanActivity::class.java)
         }
 
         binding.scanQrCode.setOnClickListener {

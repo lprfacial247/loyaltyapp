@@ -50,7 +50,6 @@ class BarcodeReaderActivity : AppCompatActivity(R.layout.activity_barcode_reader
                         finish()
                     })
                 mCodeScanner!!.releaseResources()
-//                binding.rlBarScanner.gone()
             }
         }
         mCodeScanner?.startPreview()
