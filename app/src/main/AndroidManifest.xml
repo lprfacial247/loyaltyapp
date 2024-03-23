@@ -33,7 +33,13 @@
         </activity>
         <activity
             android:name=".features.manualInsert.ManualInsertActivity"
-            android:exported="false" />
+            android:exported="false" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
         <activity
             android:name=".features.qrScanner.QrScannerActivity"
             android:exported="false" />
@@ -70,13 +76,6 @@
         <activity
             android:name=".features.splash.SplashActivity"
             android:exported="true">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".features.main.MainActivity"
