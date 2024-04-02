@@ -16,7 +16,6 @@ import com.app.loyality.databinding.ActivityScanOptionsBinding
 import com.app.loyality.features.barScanner.BarcodeReaderActivity
 import com.app.loyality.features.manualCheck.ManualCheckActivity
 import com.app.loyality.features.qrScanner.QrScannerActivity
-import com.app.loyality.features.rfidScanApproved.RFIDScanApprovedActivity
 import com.app.loyality.features.rfidScanApproved.RfidScanActivity
 import com.wada811.viewbinding.viewBinding
 

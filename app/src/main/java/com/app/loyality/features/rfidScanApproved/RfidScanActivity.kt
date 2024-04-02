@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.app.loyality.R
 import com.app.loyality.common.extensions.changeActivity
+import com.app.loyality.common.extensions.gone
+import com.app.loyality.common.extensions.show
 import com.app.loyality.common.extensions.toJson
 import com.app.loyality.common.network.api.RetrofitClient
 import com.app.loyality.common.pref.SpManager
@@ -48,6 +50,15 @@ class RfidScanActivity : AppCompatActivity(R.layout.activity_rfid_scan) {
             }
         }
 
+        binding.btnOk.setOnClickListener {
+            changeActivity(MainActivity::class.java)
+            finish()
+        }
+
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
+
 
     }
 
@@ -74,11 +85,16 @@ class RfidScanActivity : AppCompatActivity(R.layout.activity_rfid_scan) {
                 runOnUiThread {
                     checkCustomerInfo(user.userIdx, tagContent,
                         onSuccess = {
+                            binding.ivSign.show()
+                            binding.btnOk.show()
+                            binding.ivApprove.setImageResource(R.drawable.logo_approved)
                             SpManager.saveString(this@RfidScanActivity, SpManager.KEY_USER_INFO, it.toJson())
-                            changeActivity(MainActivity::class.java)
-                            finish()
                         },
                         onFailed = {
+                            binding.ivSign.gone()
+                            binding.btnOk.gone()
+                            binding.tvReading.gone()
+                            binding.ivApprove.setImageResource(R.drawable.logo_not_approved)
                             changeActivity(NoMemberYetActivity::class.java)
                             finish()
                         })
