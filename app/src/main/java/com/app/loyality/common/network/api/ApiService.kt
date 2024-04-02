@@ -35,11 +35,13 @@ interface ApiService {
         @Field("name") name: String,
         @Field("email") email: String,
         @Field("phone") phone: String,
+        @Field("card_number") cardNo: String,
         @Field("telegram") telegram: String = "",
         @Field("whatsapp") whatsapp: String = "",
         @Field("Instagram") instagram: String = "",
         @Field("linkedin") linkedin: String = "",
-        @Field("facebook") facebook: String = ""
+        @Field("facebook") facebook: String = "",
+        @Field("twitter") twitter: String = "",
     ): Call<ManualInsertResponse>
 
 

@@ -23,6 +23,13 @@ class ManualInsertActivity : AppCompatActivity(R.layout.activity_manual_insert) 
             val name = binding.etName.text.toString()
             val email = binding.etEmail.text.toString()
             val phone = binding.etPhone.text.toString()
+            val cardNumber = binding.etCardNo.text.toString()
+            val telegram = binding.etTelegram.text.toString()
+            val whatsapp = binding.etWhatsapp.text.toString()
+            val instagram = binding.etInstagram.text.toString()
+            val linkedin = binding.etLinkedin.text.toString()
+            val facebook = binding.etFacebook.text.toString()
+            val twitter = binding.etTwitter.text.toString()
 
             if (name.isEmpty()) {
                 "Name can't be empty!!".toast()
@@ -41,7 +48,7 @@ class ManualInsertActivity : AppCompatActivity(R.layout.activity_manual_insert) 
                 return@setOnClickListener
             }
 
-            manualInsert(name, email, phone,
+            manualInsert(name, email, phone, cardNumber, telegram, whatsapp, instagram, linkedin, facebook, twitter,
                 onSuccess = {
                     changeActivity(ManualInsertSuccessActivity::class.java)
                     finish()
@@ -59,11 +66,18 @@ class ManualInsertActivity : AppCompatActivity(R.layout.activity_manual_insert) 
         name: String,
         email: String,
         phone: String,
+        cardNumber: String,
+        telegram: String,
+        whatsapp: String,
+        instagram: String,
+        linkedin: String,
+        facebook: String,
+        twitter: String,
         onSuccess: (String) -> Unit,
         onFailed: (String) -> Unit
     ) {
         RetrofitClient.getApiClient()
-            .submitNewCustomer(name, email, phone)
+            .submitNewCustomer(name, email, phone, cardNumber, telegram, whatsapp, instagram, linkedin, facebook, twitter)
             .enqueue(object : Callback<ManualInsertResponse?> {
                 override fun onResponse(
                     call: Call<ManualInsertResponse?>,
